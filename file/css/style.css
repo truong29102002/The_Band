@@ -247,9 +247,9 @@ font-size: 15px;
 }
 .place-buy{
 background: black;
-text-decoration: none;
 color: white;
 padding: 10px 16px;
+border: none;
 display: inline-block;
 margin-top: 15px;
 }
@@ -263,18 +263,18 @@ margin-top: 15px;
 
 }
 /* hiển thị mua phần place buy */
-.modal {
+.modal{
      position: fixed;
      top: 0;
      right: 0;
      bottom: 0;
      left: 0;
-     display: none;
      align-items: center;
      justify-content: center;
      background: rgba(0, 0, 0, 0.5);
+     display: none;
  }
- .modal .open{
+ .modal.open{
       display: flex;
  }
 .modal-tickets {
@@ -284,6 +284,7 @@ margin-top: 15px;
      min-height: 300px;
      position: relative;
      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+     animation: modalComeIn ease 0.4s;
  }
  header.modal-header {
      height: 129px;
@@ -351,4 +352,12 @@ margin-top: 15px;
  }
  .modal-footer a{
       color: #2196F3;
+ }
+ @keyframes modalComeIn {
+      from{
+           transform: translateY(-200px);
+      }
+      to{
+           transform: translateY(0);
+      }
  }

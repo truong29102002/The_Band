@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>the Band</title>
     <link rel="stylesheet" href="./file/css/style.css">
     <link rel="stylesheet" href="./themify-icons-font/themify-icons/themify-icons.css">
 </head>
@@ -80,7 +80,7 @@
             <h3 class="place-head">New York</h3>
             <p class="place-time">Fri 27 Nov 2016</p>
             <p class="place-doc">Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
-        <a href="#" class="place-buy">Buy Tickets</a>
+        <button class="place-buy js-buy-ticket">Buy Tickets</button>
         </div>
         </div>
         <div class="place-item">
@@ -89,7 +89,7 @@
             <h3 class="place-head">Paris</h3>
             <p class="place-time">Sat 28 Nov 2016</p>
             <p class="place-doc">Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
-        <a href="#" class="place-buy">Buy Tickets</a>
+        <button class="place-buy js-buy-ticket">Buy Tickets</button>
         </div>
         </div>
         <div class="place-item">
@@ -98,7 +98,7 @@
             <h3 class="place-head">San Francisco</h3>
             <p class="place-time">Sun 29 Nov 2016</p>
             <p class="place-doc">Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
-        <a href="#" class="place-buy">Buy Tickets</a>
+        <button class="place-buy js-buy-ticket">Buy Tickets</button>
         </div>
         </div>
         <div class="clear"></div>
@@ -115,10 +115,10 @@
 
       </div>
   </div>
-<div class="modal open">
+<div class="modal js-modal">
     
-    <div class="modal-tickets">
-        <div class="modal-close">
+    <div class="modal-tickets js-modal-tickets">
+        <div class="modal-close js-modal-close">
             <i class="ti-close"></i>
         </div>
         <header class="modal-header">
@@ -146,5 +146,26 @@
         </footer>
     </div>
 </div>
+
+<script>
+    const buyBtns = document.querySelectorAll('.js-buy-ticket')
+    const modal = document.querySelector('.js-modal')
+    const modalTickets = document.querySelector('.js-modal-tickets')
+    const modalClose = document.querySelector('.js-modal-close')
+    function showBuyTickets(){
+        modal.classList.add('open')
+    }
+    function closeBuyTickets(){
+        modal.classList.remove('open')
+    }
+    for(const buyBtn of buyBtns){
+        buyBtn.addEventListener('click', showBuyTickets)
+    }
+    modalClose.addEventListener('click', closeBuyTickets)
+    modal.addEventListener('click', closeBuyTickets)
+    modalTickets.addEventListener('click', function(even){
+        even.stopPropagation()
+    })
+</script>
 </body>
 </html>
